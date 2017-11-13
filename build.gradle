@@ -1,0 +1,57 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'com.google.protobuf'
+
+group = 'se.zensum'
+version = '0.1.0'
+description = 'Currency protobuffer defintions'
+
+defaultTasks 'build'
+
+buildscript {
+    ext.jvm_version = '1.8'
+    repositories {
+        mavenCentral()
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    dependencies {
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.1'
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url "http://jcenter.bintray.com" }
+}
+
+dependencies {
+    compile 'com.google.protobuf:protobuf-java:3.3.1'
+}
+
+compileJava {
+	sourceCompatibility = jvm_version
+    targetCompatibility = jvm_version
+	options.incremental = true
+	options.encoding = 'UTF-8'
+}
+
+protobuf {
+	protoc {
+		artifact = 'com.google.protobuf:protoc:3.0.0'
+	}
+}
+
+/* Protobuffers goes into 'src/main/proto'
+ * This is default. Uncomment this block for any other way.
+sourceSets {
+  main {
+    proto {
+      srcDir 'src/main/proto'
+    }
+}
+*/
+
+task wrapper(type: Wrapper) {
+    description = 'Generates gradlew[.bat] scripts for faster execution'
+    gradleVersion = '4.2'
+}

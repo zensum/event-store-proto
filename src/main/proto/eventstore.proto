@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+package se.zensum.eventstore_proto
+
+message Response {
+    repeated bytes data = 1;
+}
