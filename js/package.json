@@ -1,6 +1,6 @@
 {
   "name": "@zensum/event-store-proto",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "dependencies": {},
@@ -8,7 +8,7 @@
     "protobufjs": "^6.8.0"
   },
   "scripts": {
-    "build": "node_modules/protobufjs/bin/pbjs -t  static-module -w commonjs ../src/main/proto/eventstore.proto -o index.js",
+    "build": "node_modules/protobufjs/bin/pbjs -r eventstore -t  static-module -w commonjs ../src/main/proto/eventstore.proto -o index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
