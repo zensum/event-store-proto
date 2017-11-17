@@ -11,3 +11,19 @@ message Event {
     string key = 2;
     repeated bytes data = 3;
 }
+
+message ControlPacket {
+    message Subscription {
+        string topic = 1;
+        repeated string keys_to_add = 2;
+        repeated string keys_to_remove = 3;
+    }
+    message Rewind {
+        string topic = 1;
+        repeated string keys = 2;
+        bool from_start = 3 [default = false];
+        uint32 max_events = 4 [default = 100];
+    }
+    repeated Subscription = 1;
+    repeated Rewind = 2;
+}
