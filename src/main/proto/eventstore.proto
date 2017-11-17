@@ -24,6 +24,6 @@ message ControlPacket {
         bool from_start = 3 [default = false];
         uint32 max_events = 4 [default = 100];
     }
-    repeated Subscription = 1;
-    repeated Rewind = 2;
+    repeated Subscription subscriptions = 1;
+    repeated Rewind rewinds = 2;
 }
