@@ -5,3 +5,9 @@ package se.zensum.event_store_proto;
 message Response {
     repeated bytes data = 1;
 }
+
+message Event {
+    string topic = 1;
+    string key = 2;
+    repeated bytes data = 3;
+}
