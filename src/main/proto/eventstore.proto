@@ -21,8 +21,8 @@ message ControlPacket {
     message Rewind {
         string topic = 1;
         repeated string keys = 2;
-        bool from_start = 3 [default = false];
-        uint32 max_events = 4 [default = 100];
+        bool from_start = 3;
+        uint32 max_events = 4;
     }
     repeated Subscription subscriptions = 1;
     repeated Rewind rewinds = 2;
