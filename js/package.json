@@ -8,7 +8,9 @@
     "protobufjs": "^6.8.0"
   },
   "scripts": {
-    "build": "node_modules/protobufjs/bin/pbjs -r eventstore -t  static-module -w commonjs ../src/main/proto/eventstore.proto -o index.js",
+    "generate-typescript": "node_modules/protobufjs/bin/pbts -o index.d.ts index.js",
+    "compile": "node_modules/protobufjs/bin/pbjs -r eventstore -t  static-module -w commonjs ../src/main/proto/eventstore.proto -o index.js",
+    "build": "yarn compile && yarn generate-typescript",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
