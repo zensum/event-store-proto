@@ -13,6 +13,11 @@ message Event {
 }
 
 message ControlPacket {
+    message Publish {
+        string topic = 1;
+        string key = 2;
+        bytes message = 3;
+    }
     message Subscription {
         string topic = 1;
         repeated string keys_to_add = 2;
@@ -26,4 +31,5 @@ message ControlPacket {
     }
     repeated Subscription subscriptions = 1;
     repeated Rewind rewinds = 2;
+    repeated Publish publish = 3;
 }
