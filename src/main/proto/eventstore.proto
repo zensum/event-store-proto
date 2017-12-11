@@ -31,5 +31,5 @@ message ControlPacket {
     }
     repeated Subscription subscriptions = 1;
     repeated Rewind rewinds = 2;
-    repeated Publish publish = 3;
+    repeated Publish publishes = 3;
 }
