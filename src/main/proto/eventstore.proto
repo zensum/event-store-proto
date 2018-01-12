@@ -10,6 +10,7 @@ message Event {
     string topic = 1;
     string key = 2;
     repeated bytes data = 3;
+    repeated uint64 offsets = 4;
 }
 
 message ControlPacket {
