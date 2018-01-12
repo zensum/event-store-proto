@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package se.zensum.event_store_proto;
+
+message StoredEvent {
+    required uint64 offset = 1;
+    required bytes data = 2;
+}
