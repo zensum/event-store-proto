@@ -6,10 +6,13 @@ message Response {
     repeated bytes data = 1;
 }
 
+// The naming of event is rather unfortunate as it refers to a set of
+// events.
 message Event {
     string topic = 1;
     string key = 2;
     repeated bytes data = 3;
+    repeated uint64 offsets = 4;
 }
 
 message ControlPacket {
